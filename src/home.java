@@ -11,12 +11,13 @@ import javax.swing.JOptionPane;
  * @author Admin
  */
 public class home extends javax.swing.JFrame {
-
+public int z=0;
     /**
      * Creates new form home
      */
     public home() {
         initComponents();
+        hideMenu();
     }
 
     /**
@@ -54,39 +55,95 @@ public class home extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/control hide and show.png"))); // NOI18N
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 27, -1, -1));
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/new buyer.png"))); // NOI18N
+        jButton2.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                jButton2ComponentShown(evt);
+            }
+        });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(122, 27, -1, -1));
 
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Update buyer.png"))); // NOI18N
+        jButton3.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                jButton3ComponentShown(evt);
+            }
+        });
         getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(238, 27, -1, -1));
 
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/buyer Details.png"))); // NOI18N
+        jButton4.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                jButton4ComponentShown(evt);
+            }
+        });
         getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 27, -1, -1));
 
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/delete buyer.png"))); // NOI18N
+        jButton5.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                jButton5ComponentShown(evt);
+            }
+        });
         getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(482, 27, -1, -1));
 
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/new product.png"))); // NOI18N
+        jButton6.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                jButton6ComponentShown(evt);
+            }
+        });
         getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(606, 27, -1, -1));
 
         jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/update product.png"))); // NOI18N
+        jButton7.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                jButton7ComponentShown(evt);
+            }
+        });
         getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(726, 27, -1, -1));
 
         jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/details product.png"))); // NOI18N
+        jButton8.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                jButton8ComponentShown(evt);
+            }
+        });
         getContentPane().add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(847, 27, -1, -1));
 
         jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/delete product.png"))); // NOI18N
+        jButton9.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                jButton9ComponentShown(evt);
+            }
+        });
         getContentPane().add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(968, 27, -1, -1));
 
         jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/billing.png"))); // NOI18N
+        jButton10.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                jButton10ComponentShown(evt);
+            }
+        });
         getContentPane().add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 30, -1, -1));
 
         jButton11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logout.png"))); // NOI18N
+        jButton11.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                jButton11ComponentShown(evt);
+            }
+        });
         jButton11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton11ActionPerformed(evt);
@@ -95,6 +152,11 @@ public class home extends javax.swing.JFrame {
         getContentPane().add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(1170, 30, -1, -1));
 
         jButton12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Close.png"))); // NOI18N
+        jButton12.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                jButton12ComponentShown(evt);
+            }
+        });
         jButton12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton12ActionPerformed(evt);
@@ -154,6 +216,75 @@ public class home extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void showMenu() {
+        javax.swing.Timer timer = new javax.swing.Timer(120, null);
+
+        timer.addActionListener((e) -> {
+            if (!jButton2.isVisible()) {
+                jButton2.setVisible(true);
+                jLabel1.setVisible(true);
+            } else if (!jButton3.isVisible()) {
+                jButton3.setVisible(true);
+                jLabel2.setVisible(true);
+            } else if (!jButton4.isVisible()) {
+                jButton4.setVisible(true);
+                jLabel3.setVisible(true);
+            } else if (!jButton5.isVisible()) {
+                jButton5.setVisible(true);
+                jLabel4.setVisible(true);
+            } else if (!jButton6.isVisible()) {
+                jButton6.setVisible(true);
+                jLabel5.setVisible(true);
+            } else if (!jButton7.isVisible()) {
+                jButton7.setVisible(true);
+                jLabel6.setVisible(true);
+            } else if (!jButton8.isVisible()) {
+                jButton8.setVisible(true);
+                jLabel7.setVisible(true);
+            } else if (!jButton9.isVisible()) {
+                jButton9.setVisible(true);
+                jLabel8.setVisible(true);
+            } else if (!jButton10.isVisible()) {
+                jButton10.setVisible(true);
+                jLabel9.setVisible(true);
+            } else if (!jButton11.isVisible()) {
+                jButton11.setVisible(true);
+                jLabel10.setVisible(true);
+            } else if (!jButton12.isVisible()) {
+                jButton12.setVisible(true);
+                jLabel11.setVisible(true);
+                timer.stop();
+            }
+        });
+        timer.start();
+    }
+
+    private void hideMenu() {
+        jButton2.setVisible(false);
+        jButton3.setVisible(false);
+        jButton4.setVisible(false);
+        jButton5.setVisible(false);
+        jButton6.setVisible(false);
+        jButton7.setVisible(false);
+        jButton8.setVisible(false);
+        jButton9.setVisible(false);
+        jButton10.setVisible(false);
+        jButton11.setVisible(false);
+        jButton12.setVisible(false);
+
+        jLabel1.setVisible(false);
+        jLabel2.setVisible(false);
+        jLabel3.setVisible(false);
+        jLabel4.setVisible(false);
+        jLabel5.setVisible(false);
+        jLabel6.setVisible(false);
+        jLabel7.setVisible(false);
+        jLabel8.setVisible(false);
+        jLabel9.setVisible(false);
+        jLabel10.setVisible(false);
+        jLabel11.setVisible(false);
+    }
+
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         // TODO add your handling code here:
         int choice = JOptionPane.showConfirmDialog(
@@ -186,6 +317,61 @@ public class home extends javax.swing.JFrame {
         System.exit(0);
     }
     }//GEN-LAST:event_jButton12ActionPerformed
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:
+        if (z == 0) {
+            showMenu();
+            z = 1;
+        } else {
+            hideMenu();
+            z = 0;
+        }
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jButton2ComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jButton2ComponentShown
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ComponentShown
+
+    private void jButton3ComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jButton3ComponentShown
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ComponentShown
+
+    private void jButton4ComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jButton4ComponentShown
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ComponentShown
+
+    private void jButton5ComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jButton5ComponentShown
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton5ComponentShown
+
+    private void jButton6ComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jButton6ComponentShown
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton6ComponentShown
+
+    private void jButton7ComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jButton7ComponentShown
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton7ComponentShown
+
+    private void jButton8ComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jButton8ComponentShown
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton8ComponentShown
+
+    private void jButton9ComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jButton9ComponentShown
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton9ComponentShown
+
+    private void jButton10ComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jButton10ComponentShown
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton10ComponentShown
+
+    private void jButton11ComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jButton11ComponentShown
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton11ComponentShown
+
+    private void jButton12ComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jButton12ComponentShown
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton12ComponentShown
 
     /**
      * @param args the command line arguments
