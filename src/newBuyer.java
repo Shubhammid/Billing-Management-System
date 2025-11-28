@@ -2,7 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
+import Project.ConnectionProvider;
+import java.sql.*;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Admin
@@ -96,6 +98,11 @@ public class newBuyer extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/save.png"))); // NOI18N
         jButton1.setText("Save");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 393, -1, -1));
 
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -117,6 +124,7 @@ public class newBuyer extends javax.swing.JFrame {
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -127,6 +135,44 @@ public class newBuyer extends javax.swing.JFrame {
     jTextField4.setText("");
     jComboBox1.setSelectedIndex(0);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        String name = jTextField1.getText().trim();
+        String contactNo = jTextField2.getText().trim();
+        String email = jTextField3.getText().trim();
+        String address = jTextField4.getText().trim();
+        String gender = jComboBox1.getSelectedItem().toString();
+
+        if (name.isEmpty() || contactNo.isEmpty() || email.isEmpty() || address.isEmpty() || gender.isEmpty()) {
+            JOptionPane.showMessageDialog(null, 
+                    "All fields must be filled before saving!", 
+                    "Error", 
+                    JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        try {
+            Connection con = ConnectionProvider.getCon();
+
+            PreparedStatement ps = con.prepareStatement(
+                "INSERT INTO buyer(name, contactNo, email, address, gender) VALUES (?,?,?,?,?)"
+            );
+
+            ps.setString(1, name);
+            ps.setString(2, contactNo);
+            ps.setString(3, email);
+            ps.setString(4, address);
+            ps.setString(5, gender);
+
+            ps.executeUpdate();
+
+            JOptionPane.showMessageDialog(null, "Buyer Added Successfully!");
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
