@@ -175,6 +175,12 @@ public class newBuyer extends javax.swing.JFrame {
             ps.executeUpdate();
 
             JOptionPane.showMessageDialog(null, "Buyer Added Successfully!");
+            
+            jTextField1.setText("");
+            jTextField2.setText("");
+            jTextField3.setText("");
+            jTextField4.setText("");
+            jComboBox1.setSelectedIndex(0);
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
