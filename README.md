@@ -1,6 +1,6 @@
 # 📘 Billing Management System (Java + NetBeans + MySQL)
 
-A desktop-based **Billing Management System** built using **Java Swing**, **NetBeans IDE**, and **MySQL**.  
+A desktop-based **Billing Management System** built using **Java Swing**, **NetBean IDE**, and **MySQL**.  
 This project includes user authentication, product management, billing calculation, and invoice generation features.
 
 ---
