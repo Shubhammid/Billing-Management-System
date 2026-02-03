@@ -3,6 +3,7 @@ import javax.swing.JTable;
 import java.sql.*;
 import Project.ConnectionProvider;
 import javax.swing.JOptionPane;
+import net.proteanit.sql.DbUtils;
 
 
 /*
@@ -43,6 +44,7 @@ public class buyersDetails extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentShown(java.awt.event.ComponentEvent evt) {
                 formComponentShown(evt);
@@ -97,6 +99,7 @@ public class buyersDetails extends javax.swing.JFrame {
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -118,9 +121,11 @@ public class buyersDetails extends javax.swing.JFrame {
         // TODO add your handling code here:
         try{
             Connection con = ConnectionProvider.getCon();
-
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM buyer");
+            jTable1.setModel(DbUtils.resultSetToTableModel(rs));            
         }catch(Exception e ){
-            
+            JOptionPane.showMessageDialog(null, e.getMessage());
         }
     }//GEN-LAST:event_formComponentShown
 
